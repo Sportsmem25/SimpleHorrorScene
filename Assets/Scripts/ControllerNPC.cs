@@ -5,20 +5,22 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class ControllerNPC : MonoBehaviour
 {
-    public Transform sitPoint;
-    public NavMeshAgent agent;
-    public AudioClip angryClip;
-    public Animator animator;
-    public float catchDistance = 1.6f;
-    public GameObject gameOverPanel;
-    public GameObject orderPanel;
-    public GameObject safeZonePanel;
-    public PostProcessVolume chasePostProcess;
+    public bool IsChasing => isChasing;
 
+    [SerializeField] private Transform sitPoint;
+    [SerializeField] private AudioClip angryClip;
+    [SerializeField] private Animator animator;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject orderPanel;
+    [SerializeField] private GameObject safeZonePanel;
+    [SerializeField] private PostProcessVolume chasePostProcess;
+
+    private NavMeshAgent agent;
+    private float catchDistance = 1.6f;
     private float transitionSpeed = 1f;
     private Transform player;
-    public bool isChasing = false;
-    public bool isGameOver = false;
+    private bool isChasing = false;
+    private bool isGameOver = false;
     private bool hasOrdered = false;
     private Coroutine chaseRoutine;
 
@@ -30,6 +32,7 @@ public class ControllerNPC : MonoBehaviour
     private void Start()
     {
         player = Camera.main.transform;
+        agent = GetComponent<NavMeshAgent>();
         chasePostProcess.weight = 0f;
         StartCoroutine(EnterAndOrder());
     }
@@ -142,15 +145,13 @@ public class ControllerNPC : MonoBehaviour
 
         agent.isStopped = true;
         ChaseManager.Instance?.StopChase();
-        var playerController = player.GetComponentInParent<PlayerMovement>();
+        PlayerMovement playerController = player.GetComponentInParent<PlayerMovement>();
         playerController.UnlockCursor();
 
         if (gameOverPanel)
             gameOverPanel.SetActive(true);
 
         Time.timeScale = 0f;
-
-        Debug.Log("Игрок пойман! Игра остановлена.");
     }
 
     public void StopChasing()
@@ -173,7 +174,6 @@ public class ControllerNPC : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         gameObject.SetActive(false);
-        Debug.Log("NPC исчез");
     }
 
     private IEnumerator EnablePostProcess(bool enable)

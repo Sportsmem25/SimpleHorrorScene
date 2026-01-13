@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class SafeZone : MonoBehaviour
 {
-    public ControllerNPC npc;
+    [SerializeField] private ControllerNPC npc;
 
     private void OnTriggerEnter(Collider other)
     {

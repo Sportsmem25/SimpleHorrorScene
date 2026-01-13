@@ -8,9 +8,9 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
 
     [Header("UI Elements")]
-    public TextMeshProUGUI interactionText;
-    public Image crosshair;
-    public Image panelOrder;
+    [SerializeField] private TextMeshProUGUI interactionText;
+    [SerializeField] private Image crosshair;
+    [SerializeField] private Image panelOrder;
 
     private void Awake()
     {

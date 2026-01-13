@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 3f;
-    public float mouseSensitivity = 2f;
-    public Transform cameraTransform;
-    public LayerMask groundMask;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private LayerMask groundMask;
 
+    private float moveSpeed = 3f;
+    private float mouseSensitivity = 2f;
     private CharacterController controller;
     private float gravity = -9.81f;
     private float rotationX = 0f;
@@ -44,11 +44,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void GroundCheck()
     {
-        // Is the player standing on the ground
         isGrounded = Physics.CheckSphere(transform.position - Vector3.up * (controller.height / 2 - 0.1f),
                                          groundCheckDistance, groundMask);
 
-        // If there is residual downward speed on the ground, we reset it.
         if (isGrounded && velocity.y < 0)
             velocity.y = -2f;
     }

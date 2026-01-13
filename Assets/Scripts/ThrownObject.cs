@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ThrownObject : MonoBehaviour
 {
-    public LayerMask hitLayer;
-    public GameObject splashPrefab;
-    public bool used = false;
+    [SerializeField] private LayerMask hitLayer;
+    [SerializeField] private GameObject splashPrefab;
+    private bool isUsed = false;
 
     public void Initializate(LayerMask layer, GameObject go)
     {
@@ -15,7 +15,7 @@ public class ThrownObject : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (used) return;
+        if (isUsed) return;
 
         if (((1 << collision.gameObject.layer) & hitLayer) != 0)
         {
@@ -26,7 +26,7 @@ public class ThrownObject : MonoBehaviour
         if (splashPrefab)
         {
             Instantiate(splashPrefab, transform.position, Quaternion.identity);
-            used = true;
+            isUsed = true;
             Destroy(gameObject, 0.5f);
         }
     }

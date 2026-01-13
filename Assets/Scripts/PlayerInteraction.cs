@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject heldObject;
-    public Transform holdPoint;
-    public LayerMask mask;
-    public float pickRange;
+    [SerializeField] private GameObject heldObject;
+    [SerializeField] private Transform holdPoint;
+    [SerializeField] private LayerMask mask;
+
+    private float pickRange = 2f;
     private GameObject lookedAtObject;
     private new Camera camera;
     private UIManager uiManager;
     private Ray ray;
     private RaycastHit hit;
-
     private IPickable lookedAtPickable;
     private CoffeMachine lookedAtMachine;
     private Cup lookedAtCup;
@@ -66,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
 
         lookedAtMachine = hit.collider.GetComponent<CoffeMachine>();
         Cup cup = heldObject != null ? heldObject.GetComponent<Cup>() : null;
-        if (lookedAtMachine != null && cup != null && !cup.isFilled)
+        if (lookedAtMachine != null && cup != null && !cup.IsFilled)
         {
             SetHeldObject(null);
 
@@ -126,7 +126,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (lookedAtPickable != null && heldObject == null)
                 uiManager.ShowInteraction($"Нажмите [E], чтобы взять {target.name}");
-            else if (lookedAtMachine != null && cup != null && !cup.isFilled)
+            else if (lookedAtMachine != null && cup != null && !cup.IsFilled)
                 uiManager.ShowInteraction("Нажмите [E], чтобы налить кофе");
             else if (heldlid != null && lookedAtCup != null)
                 uiManager.ShowInteraction("Нажмите [E], чтобы надеть крышку");

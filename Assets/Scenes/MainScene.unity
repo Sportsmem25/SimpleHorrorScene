@@ -9359,7 +9359,7 @@ GameObject:
   - component: {fileID: 341787041}
   - component: {fileID: 341787040}
   m_Layer: 0
-  m_Name: Audio Source Doorbell
+  m_Name: AudioDoorbell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15550,7 +15550,7 @@ GameObject:
   - component: {fileID: 572558364}
   - component: {fileID: 572558368}
   - component: {fileID: 572558367}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -15595,8 +15595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e27c675ec186f44a8d942622831e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
-  mouseSensitivity: 2
   cameraTransform: {fileID: 963194228}
   groundMask:
     serializedVersion: 2
@@ -15615,7 +15613,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
-  - {fileID: 1718483234}
   - {fileID: 876781368}
   - {fileID: 1676066525}
   m_Father: {fileID: 0}
@@ -15632,12 +15629,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16a74dc6255f4d4f86fe65c2c4875ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwForce: 10
-  tossUp: 1
   hitLayer:
     serializedVersion: 2
     m_Bits: 128
-  splashObject: {fileID: 0}
 --- !u!114 &572558368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15655,7 +15649,6 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
-  pickRange: 2
 --- !u!1001 &573509672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18136,8 +18129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243099d60d1af854a9513cb297267771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFilled: 0
-  hasLid: 0
   lidAttachPoint: {fileID: 1957431237}
   liquidRenderer: {fileID: 44775787}
   fillParticles: {fileID: 0}
@@ -20995,7 +20986,7 @@ GameObject:
   - component: {fileID: 757149476}
   - component: {fileID: 757149475}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: AudioHall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52689,7 +52680,6 @@ MonoBehaviour:
   cupSlot: {fileID: 1338460495}
   fillSound: {fileID: 8300000, guid: a345bb593191d744aa6680942b160790, type: 3}
   psCoffe: {fileID: 971076187}
-  fillTime: 20
 --- !u!65 &1713476482
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52819,113 +52809,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5113403946093835550, guid: 3750ffd78952c004fb598f6036dc80d4, type: 3}
   m_PrefabInstance: {fileID: 1714112368}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1718483233
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1718483234}
-  - component: {fileID: 1718483237}
-  - component: {fileID: 1718483236}
-  - component: {fileID: 1718483235}
-  m_Layer: 0
-  m_Name: Capsule
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1718483234
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718483233}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.85, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.9, z: 0.45}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 572558366}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1718483235
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718483233}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1718483236
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718483233}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1718483237
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718483233}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1721768225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57593,8 +57476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243099d60d1af854a9513cb297267771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFilled: 0
-  hasLid: 0
   lidAttachPoint: {fileID: 1877273595}
   liquidRenderer: {fileID: 898133813}
   fillParticles: {fileID: 0}
@@ -58412,7 +58293,6 @@ MonoBehaviour:
   ambientMusic: {fileID: 757149475}
   chaseAudio: {fileID: 1676066526}
   cameraShake: {fileID: 963194229}
-  shakeIntensity: 0.1
 --- !u!4 &1921280505
 Transform:
   m_ObjectHideFlags: 0
@@ -61895,16 +61775,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sitPoint: {fileID: 639983777}
-  agent: {fileID: 2079982554}
   angryClip: {fileID: 8300000, guid: 0bd9584dee4eeca4c80df014c6591dce, type: 3}
   animator: {fileID: 919132147494638162}
-  catchDistance: 1.6
   gameOverPanel: {fileID: 538036268}
   orderPanel: {fileID: 913012315}
   safeZonePanel: {fileID: 337272957}
   chasePostProcess: {fileID: 29057826}
-  isChasing: 0
-  isGameOver: 0
 --- !u!4 &2079982556
 Transform:
   m_ObjectHideFlags: 0
@@ -68250,8 +68126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243099d60d1af854a9513cb297267771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFilled: 0
-  hasLid: 0
   lidAttachPoint: {fileID: 963519318}
   liquidRenderer: {fileID: 138835831}
   fillParticles: {fileID: 0}

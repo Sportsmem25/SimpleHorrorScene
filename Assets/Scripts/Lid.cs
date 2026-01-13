@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Lid : MonoBehaviour, IPickable
 {
-    public GameObject lidModel;
+    [SerializeField] private GameObject lidModel;
     private Rigidbody rb;
     private Collider col;
 

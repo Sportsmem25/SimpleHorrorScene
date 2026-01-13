@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class CoffeMachine : MonoBehaviour
 {
-    public Transform cupSlot;
-    public AudioClip fillSound;
-    public ParticleSystem psCoffe;
-    public float fillTime = 2f;
-    private bool busy = false;
+    [SerializeField] private Transform cupSlot;
+    [SerializeField] private AudioClip fillSound;
+    [SerializeField] private ParticleSystem psCoffe;
+    private float fillTime = 20f;
+    private bool isBusy = false;
     private Rigidbody rb;
     private Collider col;
 
@@ -19,17 +19,17 @@ public class CoffeMachine : MonoBehaviour
 
     public bool TryStartFill(GameObject cupObj, System.Action onFinished)
     {
-        if (busy) return false;
+        if (isBusy) return false;
 
         var cup = cupObj.GetComponent<Cup>();
-        if (cup == null || cup.isFilled) return false;
+        if (cup == null || cup.IsFilled) return false;
         StartCoroutine(FillCoroutine(cup, onFinished));
         return true;
     }
 
     private IEnumerator FillCoroutine(Cup cup, System.Action onFinished)
     {
-        busy = true;
+        isBusy = true;
         if (rb) rb.isKinematic = true;
         if (col) col.enabled = false;
 
@@ -51,7 +51,7 @@ public class CoffeMachine : MonoBehaviour
 
         if (col) col.enabled = true;
 
-        busy = false;
+        isBusy = false;
         onFinished?.Invoke();
     }
 }

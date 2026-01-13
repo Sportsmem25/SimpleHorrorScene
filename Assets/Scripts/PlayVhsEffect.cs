@@ -14,7 +14,7 @@ public class PlayVhsEffect : MonoBehaviour
 
     private void Update()
     {
-        if (controllerNPC.isChasing)
+        if (controllerNPC.IsChasing)
         {
             vhsEffect.enabled = true;
             videoPlayer.enabled = true;

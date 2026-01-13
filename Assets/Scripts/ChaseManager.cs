@@ -4,10 +4,10 @@ public class ChaseManager : MonoBehaviour
 {
     public static ChaseManager Instance;
 
-    public AudioSource ambientMusic;
-    public AudioSource chaseAudio;
-    public CameraShake cameraShake;
-    public float shakeIntensity = 0.1f;
+    [SerializeField] private AudioSource ambientMusic;
+    [SerializeField] private AudioSource chaseAudio;
+    [SerializeField] private CameraShake cameraShake;
+    private float shakeIntensity = 0.1f;
 
     private void Awake()
     {

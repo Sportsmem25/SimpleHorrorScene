@@ -2,13 +2,16 @@ using UnityEngine;
 
 public class Cup : MonoBehaviour, IPickable
 {
-    public bool isFilled = false;
-    public bool hasLid = false;
-    public Transform lidAttachPoint;
-    public Renderer liquidRenderer;
-    public ParticleSystem fillParticles;
+    public bool IsFilled => isFilled;
+    
+    [SerializeField] private Transform lidAttachPoint;
+    [SerializeField] private Renderer liquidRenderer;
+    [SerializeField] private ParticleSystem fillParticles;
+
     private Rigidbody rb;
     private Collider col;
+    private bool isFilled = false;
+    private bool hasLid = false;
 
     private void Awake()
     {
@@ -33,7 +36,6 @@ public class Cup : MonoBehaviour, IPickable
         isFilled = true;
         if (liquidRenderer)
             liquidRenderer.enabled = true;
-        Debug.Log("Cup full");
     }
 
     public void Attachlid(Lid lid)
@@ -45,6 +47,5 @@ public class Cup : MonoBehaviour, IPickable
         lid.transform.localPosition = Vector3.zero;
         lid.transform.localRotation = Quaternion.identity;
         lid.SetPhysics(false);
-        Debug.Log("Lid on the cup");
     }
 }

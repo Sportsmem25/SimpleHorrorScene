@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class ThrowCoffee : MonoBehaviour
 {
-    public float throwForce = 10f;
-    public float tossUp = 1f;
-    public LayerMask hitLayer;
-    public GameObject splashObject;
+    [SerializeField] private LayerMask hitLayer;
+
+    private float throwForce = 10f;
+    private float tossUp = 1f;
     private PlayerInteraction playerInteraction;
+    private GameObject splashObject;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class ThrowCoffee : MonoBehaviour
             if (held == null) return;
 
             var cup = held.GetComponent<Cup>();
-            if (cup != null && cup.isFilled)
+            if (cup != null && cup.IsFilled)
             {
                 Throw(held);
                 playerInteraction.SetHeldObject(null);
